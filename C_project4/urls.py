@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
+from django.contrib.auth import views as auth_views
+from calculator import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("calculator/", include("calculator.urls")),
-    path("users/", include("users.urls")),
-    path("", RedirectView.as_view(url="calculator/")),
+    path("calculator/", include("calculator.urls")),   
+    path("register/", views.register, name="register"),
+    path('login/', auth_views.LoginView.as_view(template_name='calculator/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='calculator/logout.html'), name='logout'),
+    path("", RedirectView.as_view(url="login/")),
 ]

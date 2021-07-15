@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'calculator.apps.CalculatorConfig',
-    'users.apps.UsersConfig',
+    'calculator.apps.CalculatorConfig',   
 ]
 
 MIDDLEWARE = [
@@ -125,3 +124,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = "index"
+REGISTER_REDIRECT_URL = "index"
